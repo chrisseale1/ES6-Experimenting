@@ -6,6 +6,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 //CONST, VAR, LET
 
+//var motto = "I'm awesome but mutable.";
+var motto = "I'm awesome and immutable!"; //this won't change. But how do we know if we don't want to change the value ever?
+
 var ourFunction = function ourFunction() {
     var x = "this is in the outer scope";
 
@@ -39,6 +42,7 @@ var horn = "Honk!";
 var carSounds = { engine: engine, wheel: wheel, horn: horn };
 
 console.log(carSounds);
+console.log(carSounds.horn);
 
 //FAT ARROWS (na na na gonna have a good time)
 //old standard way
@@ -116,3 +120,52 @@ var Angie = new Girlfriend("Angie", "unstable", "bitch");
 Angie.printName();
 Angie.printStability();
 Angie.printAttitude();
+
+//SOURCE MAPS:  Check out the source map that was added for bundle.  Use it for debugging
+
+//DEFAULT arguments
+
+function test() {
+    var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    //if someone does not enter a value when the function is called,  0 will be used for a.
+    console.log(a + 10);
+};
+
+test(); //this would return 10.  Previously, it would have returned NaN.
+
+//NEW FOR LOOPS
+
+//the old way
+var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (var i = 0; i < myArray.length; i++) {
+    console.log(myArray[i]); //logs 1 through 10
+};
+
+//new way
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+    for (var _iterator = myArray[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _i = _step.value;
+
+        console.log(_i); //still logs 1 through 10
+    }
+} catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+        }
+    } finally {
+        if (_didIteratorError) {
+            throw _iteratorError;
+        }
+    }
+}
+
+;
