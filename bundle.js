@@ -1,171 +1,220 @@
-"use strict";
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
 
-//CONST, VAR, LET
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
 
-//var motto = "I'm awesome but mutable.";
-var motto = "I'm awesome and immutable!"; //this won't change. But how do we know if we don't want to change the value ever?
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 
-var ourFunction = function ourFunction() {
-    var x = "this is in the outer scope";
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 
-    if (true) {
-        var _x = "this is a new value";
-        console.log(_x);
-    }
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
 
-    console.log(x);
-};
 
-ourFunction();
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
 
-//SPREAD OPERATORS
-var awesomeBands = ["Jack White", "Smashing Pumpkins"];
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
 
-var bands = ["Tool", "Medicine", "Morphine"].concat(awesomeBands);
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
 
-console.log(bands);
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports) {
 
-//OBJECT SHORTHAND CREATION
+	"use strict";
 
-var myObject = { x: "cat", y: "dog" };
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-console.log(myObject.x);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var engine = "Vroom!";
-var wheel = "ssssssshhhhhhh";
-var horn = "Honk!";
+	//CONST, VAR, LET
 
-var carSounds = { engine: engine, wheel: wheel, horn: horn };
+	//var motto = "I'm awesome but mutable.";
+	var motto = "I'm awesome and immutable!"; //this won't change. But how do we know if we don't want to change the value ever?
 
-console.log(carSounds);
-console.log(carSounds.horn);
+	var ourFunction = function ourFunction() {
+	    var x = "this is in the outer scope";
 
-//FAT ARROWS (na na na gonna have a good time)
-//old standard way
-var oldway = function oldway() {
-    alert("hello world");
-};
+	    if (true) {
+	        var _x = "this is a new value";
+	        console.log(_x);
+	    }
 
-oldway();
+	    console.log(x);
+	};
 
-//new way fat arrows
-var newWay = function newWay() {
-    alert("Hello World. Gonna have a good time!");
-};
+	ourFunction();
 
-newWay();
+	//SPREAD OPERATORS
+	var awesomeBands = ["Jack White", "Smashing Pumpkins"];
 
-//fat arrow with arguments
-var newWayWithArg = function newWayWithArg(arg1, arg2) {
-    alert(arg1 + arg2);
-};
+	var bands = ["Tool", "Medicine", "Morphine"].concat(awesomeBands);
 
-newWayWithArg("You're a ", "sly one, Mr. Grinch.");
+	console.log(bands);
 
-//TEMPLATE LITERALS
-//old way concat
-var shadysBack = "Guess who's back?" + " back again." + " Shady's back" + ", tell a friend." + "So the FCC won't let me be so they try" + " to shut me down on MTV" + ", but it feels so empty without me.";
+	//OBJECT SHORTHAND CREATION
 
-//new way with variable and template literal
-var topic1 = "NASCAR";
+	var myObject = { x: "cat", y: "dog" };
 
-var PolRelHer = "\nLet's talk about " + topic1 + ",\nOld Hollywood movie stars,\nLet's talk about anything,\nanything in this world...\ncept politics, religion, and her.";
+	console.log(myObject.x);
 
-console.log(PolRelHer);
+	var engine = "Vroom!";
+	var wheel = "ssssssshhhhhhh";
+	var horn = "Honk!";
 
-//even with a function
-var longStringFunction = function longStringFunction(topic1) {
-    return "\n    Richard Petty was the greatest driver in " + topic1 + " history.\n    ";
-};
+	var carSounds = { engine: engine, wheel: wheel, horn: horn };
 
-console.log(longStringFunction(topic1));
+	console.log(carSounds);
+	console.log(carSounds.horn);
 
-//CLASSES
+	//FAT ARROWS (na na na gonna have a good time)
+	//old standard way
+	var oldway = function oldway() {
+	    alert("hello world");
+	};
 
-var Girlfriend = function () {
-    function Girlfriend(name, stability, attitude) {
-        _classCallCheck(this, Girlfriend);
+	oldway();
 
-        this.name = name;
-        this.stability = stability;
-        this.attitude = attitude;
-    }
+	//new way fat arrows
+	var newWay = function newWay() {
+	    alert("Hello World. Gonna have a good time!");
+	};
 
-    _createClass(Girlfriend, [{
-        key: "printName",
-        value: function printName() {
-            console.log("name = ", this.name);
-        }
-    }, {
-        key: "printStability",
-        value: function printStability() {
-            console.log("stability = ", this.stability);
-        }
-    }, {
-        key: "printAttitude",
-        value: function printAttitude() {
-            console.log("attitude = ", this.attitude);
-        }
-    }]);
+	newWay();
 
-    return Girlfriend;
-}();
+	//fat arrow with arguments
+	var newWayWithArg = function newWayWithArg(arg1, arg2) {
+	    alert(arg1 + arg2);
+	};
 
-var Angie = new Girlfriend("Angie", "unstable", "bitch");
+	newWayWithArg("You're a ", "sly one, Mr. Grinch.");
 
-Angie.printName();
-Angie.printStability();
-Angie.printAttitude();
+	//TEMPLATE LITERALS
+	//old way concat
+	var shadysBack = "Guess who's back?" + " back again." + " Shady's back" + ", tell a friend." + "So the FCC won't let me be so they try" + " to shut me down on MTV" + ", but it feels so empty without me.";
 
-//SOURCE MAPS:  Check out the source map that was added for bundle.  Use it for debugging
+	//new way with variable and template literal
+	var topic1 = "NASCAR";
 
-//DEFAULT arguments
+	var PolRelHer = "\nLet's talk about " + topic1 + ",\nOld Hollywood movie stars,\nLet's talk about anything,\nanything in this world...\ncept politics, religion, and her.";
 
-function test() {
-    var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-    //if someone does not enter a value when the function is called,  0 will be used for a.
-    console.log(a + 10);
-};
+	console.log(PolRelHer);
 
-test(); //this would return 10.  Previously, it would have returned NaN.
+	//even with a function
+	var longStringFunction = function longStringFunction(topic1) {
+	    return "\n    Richard Petty was the greatest driver in " + topic1 + " history.\n    ";
+	};
 
-//NEW FOR LOOPS
+	console.log(longStringFunction(topic1));
 
-//the old way
-var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	//CLASSES
 
-for (var i = 0; i < myArray.length; i++) {
-    console.log(myArray[i]); //logs 1 through 10
-};
+	var Girlfriend = function () {
+	    function Girlfriend(name, stability, attitude) {
+	        _classCallCheck(this, Girlfriend);
 
-//new way
-var _iteratorNormalCompletion = true;
-var _didIteratorError = false;
-var _iteratorError = undefined;
+	        this.name = name;
+	        this.stability = stability;
+	        this.attitude = attitude;
+	    }
 
-try {
-    for (var _iterator = myArray[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var _i = _step.value;
+	    _createClass(Girlfriend, [{
+	        key: "printName",
+	        value: function printName() {
+	            console.log("name = ", this.name);
+	        }
+	    }, {
+	        key: "printStability",
+	        value: function printStability() {
+	            console.log("stability = ", this.stability);
+	        }
+	    }, {
+	        key: "printAttitude",
+	        value: function printAttitude() {
+	            console.log("attitude = ", this.attitude);
+	        }
+	    }]);
 
-        console.log(_i); //still logs 1 through 10
-    }
-} catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-} finally {
-    try {
-        if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-        }
-    } finally {
-        if (_didIteratorError) {
-            throw _iteratorError;
-        }
-    }
-}
+	    return Girlfriend;
+	}();
 
-;
+	var Angie = new Girlfriend("Angie", "unstable", "bitch");
+
+	Angie.printName();
+	Angie.printStability();
+	Angie.printAttitude();
+
+	//SOURCE MAPS:  Check out the source map that was added for bundle.  Use it for debugging
+
+	//DEFAULT arguments
+
+	function test() {
+	    var a = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+	    //if someone does not enter a value when the function is called,  0 will be used for a.
+	    console.log(a + 10);
+	};
+
+	test(); //this would return 10.  Previously, it would have returned NaN.
+
+	//NEW FOR LOOPS
+
+	//the old way
+	var myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+	for (var i = 0; i < myArray.length; i++) {
+	    console.log(myArray[i]); //logs 1 through 10
+	};
+
+	//new way
+	var _iteratorNormalCompletion = true;
+	var _didIteratorError = false;
+	var _iteratorError = undefined;
+
+	try {
+	    for (var _iterator = myArray[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var _i = _step.value;
+
+	        console.log(_i); //still logs 1 through 10
+	    }
+	} catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	} finally {
+	    try {
+	        if (!_iteratorNormalCompletion && _iterator.return) {
+	            _iterator.return();
+	        }
+	    } finally {
+	        if (_didIteratorError) {
+	            throw _iteratorError;
+	        }
+	    }
+	}
+
+	;
+
+/***/ }
+/******/ ]);

@@ -4,7 +4,8 @@
   "description": "Just getting more up to speed with different aspects of ES6.  An ES6 playground for me.  No planned structure. Nothing to see here. Move along.",
   "main": "index.js",
   "scripts": {
-    "babel": "babel", 
+    "babel": "babel",
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/chrisseale1/ES6-Experimenting#readme",
   "devDependencies": {
     "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.8"
   }
 }
